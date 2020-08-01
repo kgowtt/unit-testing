@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title> JS 加上單元測試並且進行程式碼優化-測驗</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="docs/mocha.css">
+    <style>
+      div.item {
+        margin-left: 4rem;
+      }
+      div.item ul{
+        list-style-type:none;
+        padding-left: 15px;
+      }
+      div.item ul li{
+        color: #000;
+        font-size: 1em;
+        font-weight: 200;
+        line-height: 1.5rem;
+      }
+      div.item h3{
+        color: #00d6b2;
+        letter-spacing: 2px;
+        font-weight: 300;
+      }
+      #mocha{
+        margin-top: 0px;
+        margin-left: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <h3>程式優化修改部分：</h3>
+      <ul>
+        <li>1. setLabelProbabilities()裡的 var numberOfSongs = getNumberOfSongs(); 提到 forEach 外面</li>
+        <li>2. setProbabilityOfChordsInLabels()裡的 songs.length 呼叫 getNumberOfSongs() </li>
+        <li>3. classify() 裡的 var classified{} 拉到全域變數定義 在外面呼叫 classify() 方便我做單元測試結果比對</li>
+        <li>4. classify() 1.01 拉出來建立 addNumValue 變數</li>
+        <li>5. setLabelProbabilities() 改變使用 Object.entries()</li>
+        <li>6. setChordCountsInLabels() 改變使用 for of 處理 並重新命名</li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>使用Mocha 做單元測試：</h3>
+      <div id="mocha"></div>
+    </div>
+    <script src="docs/mocha.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <script src="docs/add.js"></script>
+    <script src="http://chaijs.com/chai.js"></script>
+    <script src="docs/tests.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
